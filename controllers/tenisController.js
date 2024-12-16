@@ -17,8 +17,9 @@ const getPartidoPendiente = async (req, res) => {
 
 const getPartidosPendientes = async (req, res) => {
     try{
-        const partido = await adaptador.getPartidosPendientes();
-        res.status(200).send({status: 'OK', data: partido})
+        const partidos = await adaptador.getPartidosPendientes();
+        const partidosConvertidos = Object.fromEntries(partidos);
+        res.status(200).send({status: 'OK', data: partidosConvertidos})
     }catch(error) {
         res.status(error.status || 500).send({status:'FAILED', message: error.message})
     }
@@ -27,7 +28,9 @@ const getPartidosPendientes = async (req, res) => {
 const getPartidosFinalizados = async (req, res) => {
     try{
         const partidos = await adaptador.getPartidoFinalizados();
-        res.status(200).send({status: 'OK', data: partidos})
+        console.log(partidos)
+        const partidosConvertidos = Object.fromEntries(partidos);
+        res.status(200).send({status: 'OK', data: partidosConvertidos})
     }catch(error) {
         res.status(error.status || 500).send({status:'FAILED', message: error.message})
     }

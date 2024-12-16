@@ -35,6 +35,7 @@ const getPartidosPendientes = async () => {
 
 const getPartidoFinalizados = async () => {
     const partidos = await axios.get(url + "partidosPendientes.json");
+    
     var mapAux = new Map;
     for (const id in partidos.data) {
         const datos = partidos.data[id];

@@ -6,7 +6,6 @@ const routes = express.Router()
 routes.get('/jugar', tenisController.getPartidoPendiente)
 routes.get('/finalizados', tenisController.getPartidosFinalizados)
 routes.get('/pendientes', tenisController.getPartidosPendientes)
-
 routes.post('/:id', tenisController.patchPartidos)
 
 module.exports = routes
