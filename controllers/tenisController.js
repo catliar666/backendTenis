@@ -5,6 +5,14 @@ const adaptador = require('../database/adaptador');
 // getPartidoPendiente, HECHO
 // patchPartidoFinalizados,
 
+const getInfoTorneo = async (req, res) => {
+    try{
+        const torneo = await adaptador.getTorneo();
+        res.status(200).send({status: 'OK', data: torneo})
+    }catch(error) {
+        res.status(error.status || 500).send({status:'FAILED', message: error.message})
+    }
+}
 
 const getPartidoPendiente = async (req, res) => {
     try{
@@ -62,6 +70,7 @@ const patchPartidos = async (req, res) => {
 // }
 
 module.exports = {
+    getInfoTorneo,
     getPartidosPendientes,
     patchPartidos,
     getPartidoPendiente,

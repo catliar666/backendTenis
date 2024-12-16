@@ -1,5 +1,22 @@
-const axios = require('axios')
+const axios = require('axios');
 const url = "https://backendtenis-7f959-default-rtdb.europe-west1.firebasedatabase.app/"
+
+const getTorneo = async () => {
+    // const partidos = await axios.get(url + "partidosPendientes.json");
+    // const data = partidos.data;
+    // return Object.values(data)[0]; 
+    const infoTorneo = await axios.get(url + "infoTorneo.json");
+    var mapAux = new Map;
+    for (const id in infoTorneo.data) {
+        const datos = infoTorneo.data[id];
+            mapAux.set(id,datos)
+    }
+    
+    const firstKey = mapAux.keys().next().value; 
+    const firstValue = mapAux.get(firstKey);    
+
+    return { id: firstKey, ...firstValue }; 
+};
 
 const getPartidoPendiente = async () => {
     // const partidos = await axios.get(url + "partidosPendientes.json");
@@ -54,6 +71,7 @@ const patchPartidoFinalizados = async (id ,partido) => {
 
 
 module.exports = {
+    getTorneo,
     getPartidosPendientes,
     getPartidoFinalizados,
     getPartidoPendiente,
