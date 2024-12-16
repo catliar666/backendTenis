@@ -1,0 +1,45 @@
+{
+  "partidosCompletados": "",
+  "partidosPendientes": {
+    "-ODpmn7ERuFQs8r1p0EL": {
+      "jugador1": {
+        "img": "-",
+        "nombre": "guille"
+      },
+      "jugador2": {
+        "img": "-",
+        "nombre": "carlos"
+      }
+    },
+    "-ODpmrAVO9JnXEuUwMpF": {
+      "jugador1": {
+        "img": "-",
+        "nombre": "inma"
+      },
+      "jugador2": {
+        "img": "-",
+        "nombre": "miguel"
+      }
+    },
+    "-ODpmtcvpHfuN6t5xPEi": {
+      "jugador1": {
+        "img": "-",
+        "nombre": "adrian"
+      },
+      "jugador2": {
+        "img": "-",
+        "nombre": "manuel"
+      }
+    },
+    "a6dsfuyas": {
+      "jugador1": {
+        "img": "-",
+        "nombre": "nina"
+      },
+      "jugador2": {
+        "img": "-",
+        "nombre": "pipo"
+      }
+    }
+  }
+}
