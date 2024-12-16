@@ -1,23 +1,10 @@
 const adaptador = require('../database/adaptador');
 
-const getPartidos = async (req, res) => {
-try{
-    const partidos = await adaptador.getPartidos();
-    res.status(200).send({status: 'OK', data: partidos})
-}catch(error) {
-    res.status(error.status || 500).send({status:'FAILED', message: error.message})
-}
-}
+// getPartidosPendientes, HECHO
+// getPartidoFinalizados, HEHCO
+// getPartidoPendiente, HECHO
+// patchPartidoFinalizados,
 
-
-const getPartido = async (req, res) => {
-    try{
-        const partido = await adaptador.getPrimerPartido();
-        res.status(200).send({status: 'OK', data: partido})
-    }catch(error) {
-        res.status(error.status || 500).send({status:'FAILED', message: error.message})
-    }
-}
 
 const getPartidoPendiente = async (req, res) => {
     try{
@@ -39,7 +26,7 @@ const getPartidosPendientes = async (req, res) => {
 
 const getPartidosFinalizados = async (req, res) => {
     try{
-        const partidos = await adaptador.getPartidosFinalizados();
+        const partidos = await adaptador.getPartidoFinalizados();
         res.status(200).send({status: 'OK', data: partidos})
     }catch(error) {
         res.status(error.status || 500).send({status:'FAILED', message: error.message})
@@ -52,7 +39,7 @@ const patchPartidos = async (req, res) => {
         params: { id },
       } = req;
     try{
-        const partidos = await adaptador.patchPartidosFinalizados(id, body)
+        const partidos = await adaptador.patchPartidoFinalizados(id, body)
         res.status(200).send({status: 'OK', data: partidos})
     }catch(error) {
         res.status(error.status || 500).send({status:'FAILED', message: error.message})
@@ -72,11 +59,8 @@ const patchPartidos = async (req, res) => {
 // }
 
 module.exports = {
-    getPartidos,
     getPartidosPendientes,
-    getPartido,
     patchPartidos,
     getPartidoPendiente,
     getPartidosFinalizados
-
 }
