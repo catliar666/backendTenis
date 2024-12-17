@@ -6,6 +6,6 @@ routes.get('/infoTorneo', tenisController.getInfoTorneo)
 routes.get('/jugar', tenisController.getPartidoPendiente)
 routes.get('/finalizados', tenisController.getPartidosFinalizados)
 routes.get('/pendientes', tenisController.getPartidosPendientes)
-routes.post('/:id', tenisController.patchPartidos)
+routes.patch('/:id', tenisController.patchPartidos)
 
 module.exports = routes
